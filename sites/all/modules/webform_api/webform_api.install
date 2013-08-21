@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Webform API module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function webform_api_uninstall() {
+  webform_api_delete_variables();
+}
+
+/**
+ * Delete all module variables.
+ */
+function webform_api_delete_variables() {
+  watchdog('webform_api', 'Deleting module variables.');
+
+  db_delete('variable')->condition('name', 'webform_api_%', 'LIKE')->execute();
+}

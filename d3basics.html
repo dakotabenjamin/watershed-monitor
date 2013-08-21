@@ -1,0 +1,28 @@
+<head>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<style>
+ #text{
+ font-size:24;
+ }
+</style>
+</head>
+<body>
+<span>
+<script>
+	var body = d3.select("body");
+	var text = body.append("text");
+	text.style("color","#f00");
+	text.text("Hello!");
+	text.attr("id","text");
+	var heading = d3.select("h1").style("color","#ff00ff");
+	var sub1 = d3.select("#sub1").style("color","#0f0").append("br");
+	var sub2 = d3.select(".sub2").style("color","00f");
+	sub2.append("br");
+
+</script></span>
+
+<h1>This is a tutorial!</h1>
+<text id=sub1>sub1</text>
+<text class=sub2>sub2</text>
+
+</body>

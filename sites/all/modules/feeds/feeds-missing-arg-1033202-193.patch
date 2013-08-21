@@ -1,0 +1,66 @@
+diff --git a/plugins/FeedsNodeProcessor.inc b/plugins/FeedsNodeProcessor.inc
+index d208047..933c84c 100644
+--- a/plugins/FeedsNodeProcessor.inc
++++ b/plugins/FeedsNodeProcessor.inc
+@@ -243,7 +243,7 @@ class FeedsNodeProcessor extends FeedsProcessor {
+   /**
+    * Override setTargetElement to operate on a target item that is a node.
+    */
+-  public function setTargetElement(FeedsSource $source, $target_node, $target_element, $value) {
++  public function setTargetElement(FeedsSource $source, $target_node, $target_element, $value, $mapping) {
+     switch ($target_element) {
+       case 'created':
+         $target_node->created = feeds_to_unixtime($value, REQUEST_TIME);
+@@ -270,7 +270,7 @@ class FeedsNodeProcessor extends FeedsProcessor {
+         }
+         break;
+       default:
+-        parent::setTargetElement($source, $target_node, $target_element, $value);
++        parent::setTargetElement($source, $target_node, $target_element, $value, $mapping);
+         break;
+     }
+   }
+diff --git a/plugins/FeedsTermProcessor.inc b/plugins/FeedsTermProcessor.inc
+index 7721ff0..fc21b3b 100644
+--- a/plugins/FeedsTermProcessor.inc
++++ b/plugins/FeedsTermProcessor.inc
+@@ -120,7 +120,7 @@ class FeedsTermProcessor extends FeedsProcessor {
+   /**
+    * Override setTargetElement to operate on a target item that is a taxonomy term.
+    */
+-  public function setTargetElement(FeedsSource $source, $target_term, $target_element, $value) {
++  public function setTargetElement(FeedsSource $source, $target_term, $target_element, $value, $mapping) {
+     switch ($target_element) {
+       case 'parent':
+         if (!empty($value)) {
+@@ -161,7 +161,7 @@ class FeedsTermProcessor extends FeedsProcessor {
+         $target_term->weight = $weight;
+         break;
+       default:
+-        parent::setTargetElement($source, $target_term, $target_element, $value);
++        parent::setTargetElement($source, $target_term, $target_element, $value, $mapping);
+         break;
+     }
+   }
+diff --git a/plugins/FeedsUserProcessor.inc b/plugins/FeedsUserProcessor.inc
+index b067c41..b37fe8c 100644
+--- a/plugins/FeedsUserProcessor.inc
++++ b/plugins/FeedsUserProcessor.inc
+@@ -146,7 +146,7 @@ class FeedsUserProcessor extends FeedsProcessor {
+   /**
+    * Override setTargetElement to operate on a target item that is a node.
+    */
+-  public function setTargetElement(FeedsSource $source, $target_user, $target_element, $value) {
++  public function setTargetElement(FeedsSource $source, $target_user, $target_element, $value, $mapping) {
+     switch ($target_element) {
+       case 'created':
+         $target_user->created = feeds_to_unixtime($value, REQUEST_TIME);
+@@ -155,7 +155,7 @@ class FeedsUserProcessor extends FeedsProcessor {
+         $target_user->language = strtolower($value);
+         break;
+       default:
+-        parent::setTargetElement($source, $target_user, $target_element, $value);
++        parent::setTargetElement($source, $target_user, $target_element, $value, $mapping);
+         break;
+     }
+   }

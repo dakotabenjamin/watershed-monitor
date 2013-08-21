@@ -1,0 +1,12 @@
+# Ignore configuration files that may contain sensitive information.
+sites/*/settings*.php
+
+*.swp
+# Ignore paths that contain user-generated content.
+sites/*/files
+sites/*/private
+
+visualization/credentials.php
+visualization/working-index.php
+
+demographics

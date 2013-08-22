@@ -2306,6 +2306,7 @@ function url($path = NULL, array $options = array()) {
  *   Boolean TRUE or FALSE, where TRUE indicates an external path.
  */
 function url_is_external($path) {
+  //return TRUE;
   $colonpos = strpos($path, ':');
   // Avoid calling drupal_strip_dangerous_protocols() if there is any
   // slash (/), hash (#) or question_mark (?) before the colon (:)

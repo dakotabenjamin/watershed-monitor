@@ -1,6 +1,6 @@
 
 function leafletMap(arrmetadata, arrdata) {
-        var map = L.map('map').setView([arrmetadata[1].lat, arrmetadata[1].lon],15);
+        var map = L.map('map').setView([arrmetadata[0].lat, arrmetadata[1].lon],15);
         L.tileLayer('http://maps.clemetparks.com/tilestache/tilestache.cgi/basemap/{z}/{x}/{y}.jpg', {maxZoom: 18}).addTo(map);
         L.tileLayer('http://maps1.clemetparks.com/tilestache/tilestache.cgi/basemap/{z}/{x}/{y}.jpg', {maxZoom: 18}).addTo(map);
         L.tileLayer('http://maps2.clemetparks.com/tilestache/tilestache.cgi/basemap/{z}/{x}/{y}.jpg', {maxZoom: 18}).addTo(map);
@@ -206,7 +206,7 @@ function rainChart(data, cht, x, y) {
 }
 
 function dlCSV(wellname, querys) {
-	console.log(wellname + " //// " + querys[wellname]);
+//	console.log(wellname + " //// " + querys[wellname]);
         var form = document.getElementById("csvform");
         form['querystr'].value = querys[wellname];
         form['wellname'].value = wellname;

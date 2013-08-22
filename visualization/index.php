@@ -26,14 +26,14 @@
 @import url("http://192.168.100.31/modules/system/system.menus.css?mr1k9x");
 @import url("http://192.168.100.31/modules/system/system.messages.css?mr1k9x");
 @import url("http://192.168.100.31/modules/system/system.theme.css?mr1k9x");</style>
-<style type="text/css" media="all">@import url("http://192.168.100.31/modules/comment/comment.css?mr1k9x");
+<!--<style type="text/css" media="all">@import url("http://192.168.100.31/modules/comment/comment.css?mr1k9x");
 @import url("http://192.168.100.31/sites/all/modules/date/date_api/date.css?mr1k9x");
 @import url("http://192.168.100.31/sites/all/modules/date/date_popup/themes/datepicker.1.7.css?mr1k9x");
 @import url("http://192.168.100.31/modules/field/theme/field.css?mr1k9x");
 @import url("http://192.168.100.31/modules/node/node.css?mr1k9x");
 @import url("http://192.168.100.31/modules/search/search.css?mr1k9x");
 @import url("http://192.168.100.31/modules/user/user.css?mr1k9x");
-@import url("http://192.168.100.31/sites/all/modules/views/css/views.css?mr1k9x");</style>
+@import url("http://192.168.100.31/sites/all/modules/views/css/views.css?mr1k9x");</style>-->
 <style type="text/css" media="all">@import url("http://192.168.100.31/sites/all/modules/ctools/css/ctools.css?mr1k9x");</style>
 <style type="text/css" media="all">@import url("http://192.168.100.31/themes/bartik/css/layout.css?mr1k9x");
 @import url("http://192.168.100.31/themes/bartik/css/style.css?mr1k9x");
@@ -60,7 +60,7 @@
 
 <?php
 
-include(credentials.php);
+include 'credentials.php';
 
 error_reporting(E_ALL);
 //ini_set('display_errors',1);
@@ -136,7 +136,7 @@ foreach($wellnames as $wellname) {
 		<h2 class="element-invisible">Main menu</h2>
 		<ul id="main-menu-links" class="links clearfix">
 			<li class="menu-218 first"><a href="/">Home</a></li>
-			<li class="menu-575 last active"><a href="http://192.168.100.31/visualization/" class="active" title="">Visualization</a></li>
+			<li class="menu-575 last active"><a href="#" class="active" title="">Visualization</a></li>
 		</ul>
 	</div> <!-- /#main-menu -->
 
@@ -180,19 +180,6 @@ foreach($wellnames as $wellname) {
 
 </div><!--</div>  end of main -->
 
-<!--
-<div id="footer-wrapper"><div class="section">
-	<div id="footer" class="clearfix">
-		<div id="block-system-powered-by" class="block block-system">
-			<div class="content">
-				<span>Powered by <a href="http://drupal.org">Drupal</a></span>  </div>
-			</div>
-		</div>
-	</div> 
-</div></div> 
-
-</div>
--->
 
 <div class="container">
 

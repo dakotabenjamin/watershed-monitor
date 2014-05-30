@@ -15,12 +15,12 @@ header('Content-Disposition: attachment; filename=' . $_POST['wellname'] . '.csv
 $output = fopen('php://output', 'w');
 
 // output the column headings
-fputcsv($output, array('datetime', 'level', 'calibration'));
+fputcsv($output, array('datetime', 'level', 'calibration')); #HERE is where we add the column header
 
 // fetch the data
 $result = pg_query($postgres,(string) $_POST['querystr']);
 // loop over the rows, outputting them
-while ($row = pg_fetch_assoc($result)) fputcsv($output, $row);
+while ($row = pg_fetch_assoc($result)) fputcsv($output, $row); # HERE is where we somehow do the math and add the calibrated column
 #$rows = pg_fetch_assoc($result);
 #for ($i = 0; $i < pg_num_rows($result);$i++) fputcsv($output, $row);
 

@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="js/Leaflet.markercluster-master/dist/MarkerCluster.Default.css" />
 	<link rel="stylesheet" href="js/Leaflet.label-master/dist/leaflet.label.css" />
 
+<<<<<<< HEAD
 <!-- Stealing style from the drupal page --> 
 <style type="text/css" media="all">@import url("../modules/system/system.base.css?mr1k9x");
 @import url("../modules/system/system.menus.css?mr1k9x");
@@ -32,6 +33,19 @@
 @import url("../sites/default/files/color/bartik-24c27a8e/colors.css?mr1k9x");</style>
 <style type="text/css" media="print">@import url("../themes/bartik/css/print.css?mr1k9x");</style>
 
+=======
+<!-- Stealing style from the drupal page 
+<style type="text/css" media="all">@import url("http://192.168.100.31/modules/system/system.base.css?mr1k9x");
+@import url("http://192.168.100.31/modules/system/system.menus.css?mr1k9x");
+@import url("http://192.168.100.31/modules/system/system.messages.css?mr1k9x");
+@import url("http://192.168.100.31/modules/system/system.theme.css?mr1k9x");</style>
+<style type="text/css" media="all">@import url("http://192.168.100.31/sites/all/modules/ctools/css/ctools.css?mr1k9x");</style>
+<style type="text/css" media="all">@import url("http://192.168.100.31/themes/bartik/css/layout.css?mr1k9x");
+@import url("http://192.168.100.31/themes/bartik/css/style.css?mr1k9x");
+@import url("http://192.168.100.31/sites/default/files/color/bartik-24c27a8e/colors.css?mr1k9x");</style>
+<style type="text/css" media="print">@import url("http://192.168.100.31/themes/bartik/css/print.css?mr1k9x");</style>
+-->
+>>>>>>> e4d5d151f9589824dba7c1fe846bef32b7d3d763
 	<link rel="stylesheet" href="css/main.css" />
 <!--[if lte IE 7]>
 <link type="text/css" rel="stylesheet" href="../themes/bartik/css/ie.css?mr1k9x" media="all" />

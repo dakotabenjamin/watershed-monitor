@@ -13,7 +13,6 @@
 	<script src="js/Leaflet.markercluster-master/dist/leaflet.markercluster.js "></script>
 	<script src="js/vkbeautify.0.99.00.beta.js"></script>
 	<script src="js/Leaflet.label-master/dist/leaflet.label.js"></script>
-<!--	<script type="text/javascript"> var querys =  <?php //echo json_encode($querys);?>;</script>-->
 	<script src="js/main.js"></script>
 	<link rel="shortcut icon" href="favicon.ico" />
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css" />
@@ -22,31 +21,24 @@
 	<link rel="stylesheet" href="js/Leaflet.markercluster-master/dist/MarkerCluster.Default.css" />
 	<link rel="stylesheet" href="js/Leaflet.label-master/dist/leaflet.label.css" />
 
-<style type="text/css" media="all">@import url("http://192.168.100.31/modules/system/system.base.css?mr1k9x");
-@import url("http://192.168.100.31/modules/system/system.menus.css?mr1k9x");
-@import url("http://192.168.100.31/modules/system/system.messages.css?mr1k9x");
-@import url("http://192.168.100.31/modules/system/system.theme.css?mr1k9x");</style>
-<!--<style type="text/css" media="all">@import url("http://192.168.100.31/modules/comment/comment.css?mr1k9x");
-@import url("http://192.168.100.31/sites/all/modules/date/date_api/date.css?mr1k9x");
-@import url("http://192.168.100.31/sites/all/modules/date/date_popup/themes/datepicker.1.7.css?mr1k9x");
-@import url("http://192.168.100.31/modules/field/theme/field.css?mr1k9x");
-@import url("http://192.168.100.31/modules/node/node.css?mr1k9x");
-@import url("http://192.168.100.31/modules/search/search.css?mr1k9x");
-@import url("http://192.168.100.31/modules/user/user.css?mr1k9x");
-@import url("http://192.168.100.31/sites/all/modules/views/css/views.css?mr1k9x");</style>-->
-<style type="text/css" media="all">@import url("http://192.168.100.31/sites/all/modules/ctools/css/ctools.css?mr1k9x");</style>
-<style type="text/css" media="all">@import url("http://192.168.100.31/themes/bartik/css/layout.css?mr1k9x");
-@import url("http://192.168.100.31/themes/bartik/css/style.css?mr1k9x");
-@import url("http://192.168.100.31/sites/default/files/color/bartik-24c27a8e/colors.css?mr1k9x");</style>
-<style type="text/css" media="print">@import url("http://192.168.100.31/themes/bartik/css/print.css?mr1k9x");</style>
+<!-- Stealing style from the drupal page --> 
+<style type="text/css" media="all">@import url("../modules/system/system.base.css?mr1k9x");
+@import url("../modules/system/system.menus.css?mr1k9x");
+@import url("../modules/system/system.messages.css?mr1k9x");
+@import url("../modules/system/system.theme.css?mr1k9x");</style>
+<style type="text/css" media="all">@import url("../sites/all/modules/ctools/css/ctools.css?mr1k9x");</style>
+<style type="text/css" media="all">@import url("../themes/bartik/css/layout.css?mr1k9x");
+@import url("../themes/bartik/css/style.css?mr1k9x");
+@import url("../sites/default/files/color/bartik-24c27a8e/colors.css?mr1k9x");</style>
+<style type="text/css" media="print">@import url("../themes/bartik/css/print.css?mr1k9x");</style>
 
 	<link rel="stylesheet" href="css/main.css" />
 <!--[if lte IE 7]>
-<link type="text/css" rel="stylesheet" href="http://192.168.100.31/themes/bartik/css/ie.css?mr1k9x" media="all" />
+<link type="text/css" rel="stylesheet" href="../themes/bartik/css/ie.css?mr1k9x" media="all" />
 <![endif]-->
 
 <!--[if IE 6]>
-<link type="text/css" rel="stylesheet" href="http://192.168.100.31/themes/bartik/css/ie6.css?mr1k9x" media="all" />
+<link type="text/css" rel="stylesheet" href="../themes/bartik/css/ie6.css?mr1k9x" media="all" />
 <![endif]--> 
 
 
@@ -149,8 +141,8 @@ foreach($wellnames as $wellname) {
 			<?php //add each well as a check box to the form 
 			while($row<count($arrmetadata)) {
 				$md =$arrmetadata[$row]['well_name'];
-#				echo "<input type='checkbox' name='wellnames[]' id='$md' value='$md'>$md<br/>";
-				echo "<input type='checkbox' name='wellnames[]' value='$md'>$md<br/>";
+#				echo "<div class"checkbox"><input type='checkbox' name='wellnames[]' id='$md' value='$md'>$md</div>";
+				echo "<input type='checkbox' name='wellnames[]' id='check$md' value='$md' onclick='markerClick(this);'>$md<br/>";
 				$row=$row+1;
 				}	
 			?>
@@ -205,6 +197,8 @@ foreach($wellnames as $wellname) {
 
 <script type="text/javascript">
 
+
+	var arrmetadata = <?php echo json_encode($arrmetadata,JSON_NUMERIC_CHECK); ?>;
 /*
     One-time initialization
 */
@@ -219,9 +213,7 @@ $(document).ready(function() {
 
 	$("#save_metadata").click(function() {dlmetadata(<?=$wellnames?>);});
 	
-
-	var arrmetadata = <?php echo json_encode($arrmetadata,JSON_NUMERIC_CHECK); ?>;
-	
+console.log(arrmetadata);	
 	leafletMap(arrmetadata);
 	<?php if ($arrdata): ?>
 		var arrdata = <?php echo json_encode($arrdata,JSON_NUMERIC_CHECK); ?>,
@@ -232,7 +224,6 @@ $(document).ready(function() {
 	<?php endif; ?>
 	
 	$("#LTL01").click(function() { dlCSV(this.id, <?php echo json_encode($querys);?>);});
-
 });
 
 

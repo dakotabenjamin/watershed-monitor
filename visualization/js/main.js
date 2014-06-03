@@ -1,6 +1,6 @@
-
+var map, markers;
 function leafletMap(arrmetadata, arrdata) {
-        var map = L.map('map').setView([arrmetadata[0].lat, arrmetadata[1].lon],15);
+        map = L.map('map').setView([arrmetadata[0].lat, arrmetadata[1].lon],15);
         L.tileLayer('http://maps.clemetparks.com/tilestache/tilestache.cgi/basemap/{z}/{x}/{y}.jpg', {maxZoom: 18}).addTo(map);
         L.tileLayer('http://maps1.clemetparks.com/tilestache/tilestache.cgi/basemap/{z}/{x}/{y}.jpg', {maxZoom: 18}).addTo(map);
         L.tileLayer('http://maps2.clemetparks.com/tilestache/tilestache.cgi/basemap/{z}/{x}/{y}.jpg', {maxZoom: 18}).addTo(map);
@@ -9,16 +9,15 @@ function leafletMap(arrmetadata, arrdata) {
         var roads = new L.TileLayer.WMS("http://maps3.clemetparks.com/gwc", { id:'labels', layers:'group_overlays', format:'image/png', transparent:'TRUE' });
         roads.addTo(map);
 
-        var markers = L.markerClusterGroup({
+        markers = L.markerClusterGroup({
 //              iconCreateFunction: function(cluster) {
 //              return new L.DivIcon({ html:  cluster.getChildCount(), classname: 'mapcluster' });
 //              }
         }).on('click', markerClick);
         for(var i=0;i<arrmetadata.length;i++){
-                var title = arrmetadata[i].well_name;//console.log(title);
-                var marker = new L.marker([arrmetadata[i].lat, arrmetadata[i].lon],5, {title: title});
-                marker.bindLabel(title);
-                markers.addLayer(marker);
+                var title =  arrmetadata[i].well_name;
+	//	marker.bindLabel(title);
+                markers.addLayer( new L.marker([arrmetadata[i].lat, arrmetadata[i].lon],5, {title: title, id:"marker" + title}).bindLabel(title));
         }
 
         map.addLayer(markers);
@@ -26,8 +25,11 @@ function leafletMap(arrmetadata, arrdata) {
 }
 
 function markerClick(e) {
-	//console.log(e);
-	var cbox = document.getElementById(e.layer._label._content);
+	console.log(e);
+	if (e.layer !== undefined) {
+		var cbox = document.getElementById("check" + e.layer._label._content);
+		//var marker
+	} else { var cbox = this;}
 	if (cbox.checked) {
 		cbox.checked = false;
 		e.layer.setOpacity(1);

@@ -544,7 +544,7 @@ function _geofield_geo_types_options_callback() {
  * Gets the a latlong property.
  */
 function geofield_return_latlon($data, array $options, $name) {
-  if ((is_array($data) || (is_object($data) && $data instanceof ArrayAccess))) {
+  if ((is_array($data) || (is_object($data) && $data instanceof ArrayAccess)) && !is_null($data['lat']) && !is_null($data['lon'])) {
     return $data['lat'] . ',' . $data['lon'];
   }
   return NULL;

@@ -13,8 +13,9 @@
 	<script src="js/Leaflet.markercluster-master/dist/leaflet.markercluster.js "></script>
 	<script src="js/vkbeautify.0.99.00.beta.js"></script>
 	<script src="js/Leaflet.label-master/dist/leaflet.label.js"></script>
-	<script src="js/main.js"></script>
 	<link rel="shortcut icon" href="favicon.ico" />
+	<script src="js/main.js"></script>
+	<script src="js/Columnizer-jQuery-Plugin-1.6.0/src/jquery.columnizer.js"></script>
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css" />
 	<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="js/Leaflet.markercluster-master/dist/MarkerCluster.css" />
@@ -32,7 +33,6 @@
 @import url("../sites/default/files/color/bartik-24c27a8e/colors.css?mr1k9x");</style>
 <style type="text/css" media="print">@import url("../themes/bartik/css/print.css?mr1k9x");</style>
 
-=======
 <!-- Stealing style from the drupal page 
 <style type="text/css" media="all">@import url("http://192.168.100.31/modules/system/system.base.css?mr1k9x");
 @import url("http://192.168.100.31/modules/system/system.menus.css?mr1k9x");
@@ -239,6 +239,10 @@ console.log(arrmetadata);
 });
 
 
+//Columnizer
+$(function() {
+	$('#selectbox').columnize({columns:3});
+});
 
 </script>
 

@@ -67,8 +67,8 @@
 include 'credentials.php';
 
 error_reporting(E_ALL);
-//ini_set('display_errors',1);
-ini_set('log_errors',0);
+ini_set('display_errors',1);
+//ini_set('log_errors',0);
 
 
 //get metadata
@@ -154,7 +154,7 @@ foreach($wellnames as $wellname) {
 			while($row<count($arrmetadata)) {
 				$md =$arrmetadata[$row]['well_name'];
 #				echo "<div class"checkbox"><input type='checkbox' name='wellnames[]' id='$md' value='$md'>$md</div>";
-				echo "<input type='checkbox' name='wellnames[]' id='check$md' value='$md' onclick='markerClick(this);'>$md<br/>";
+				echo "<input class='dontend' type='checkbox' name='wellnames[]' id='check$md' value='$md' onclick='markerClick(this);'>$md<br/>";
 				$row=$row+1;
 				}	
 			?>

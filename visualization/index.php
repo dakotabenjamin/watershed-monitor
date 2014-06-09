@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <title>Water Monitor Visualization</title>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script src="http://d3js.org/d3.v2.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
 	<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
 	<script src="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.js"></script>

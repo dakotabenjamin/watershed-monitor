@@ -1,6 +1,6 @@
 var map, markers;
 function leafletMap(arrmetadata, arrdata) {
-        map = L.map('map').setView([arrmetadata[0].lat, arrmetadata[1].lon],15);
+        map = L.map('map').setView([41.461002, -81.616880],10);
         L.tileLayer('http://maps.clemetparks.com/tilestache/tilestache.cgi/basemap/{z}/{x}/{y}.jpg', {maxZoom: 18}).addTo(map);
         L.tileLayer('http://maps1.clemetparks.com/tilestache/tilestache.cgi/basemap/{z}/{x}/{y}.jpg', {maxZoom: 18}).addTo(map);
         L.tileLayer('http://maps2.clemetparks.com/tilestache/tilestache.cgi/basemap/{z}/{x}/{y}.jpg', {maxZoom: 18}).addTo(map);

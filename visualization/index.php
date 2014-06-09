@@ -67,8 +67,8 @@
 include 'credentials.php';
 
 error_reporting(E_ALL);
-ini_set('display_errors',1);
-//ini_set('log_errors',0);
+//ini_set('display_errors',1);
+ini_set('log_errors',0);
 
 
 //get metadata
@@ -149,7 +149,7 @@ foreach($wellnames as $wellname) {
 <div id="main-wrapper" class="clearfix">
 	<div id="row1" class="row">
 		<div id="selectbox">
-			<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
+			<form id="selectboxform" action="<?=$_SERVER['PHP_SELF']?>" method="post">
 			<?php //add each well as a check box to the form 
 			while($row<count($arrmetadata)) {
 				$md =$arrmetadata[$row]['well_name'];
@@ -241,7 +241,7 @@ console.log(arrmetadata);
 
 //Columnizer
 $(function() {
-	$('#selectbox').columnize({columns:3});
+	$('#selectboxform').columnize({columns:3});
 });
 
 </script>
